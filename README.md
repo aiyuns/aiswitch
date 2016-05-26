@@ -65,3 +65,7 @@ switch配置项说明：
 		"fastPingMode": false,	      #是否开启 fastPing 模式，开启 Ping 的效率更高，并能解决高并发时，会有小概率 ping 通宕机的交换机地址的情况。但 fastPing 可能被防火墙过滤。
 		"limitConcur": 1000           #限制SNMP请求并发数
     }
+
+## 资料补充
+1. [open-falcon教程(含安装部署)](http://book.open-falcon.org/zh/index.html)
+2. [open-falcon邮件发送模块](https://github.com/iambocai/mailer)

@@ -1,6 +1,6 @@
 基于开源项目[swcollector](https://github.com/gaochao1/swcollector)
 
-##简介
+## 简介
 采集的metric列表：
 在swcollector的基础上增加了
 * hwL2VlanStatInTotalPkts(VLAN下接收报文包数统计)
@@ -8,10 +8,10 @@
 * hwL2VlanStatInTotalBytes(VLAN下发出报文包数统计)
 * hwL2VlanStatOutTotalBytes(VLAN下发出报文字节数统计)
 
-##设备支持
+## 设备支持
 hwL2VlanStatInTotalPkts、hwL2VlanStatOutTotalPkts、hwL2VlanStatInTotalBytes、hwL2VlanStatOutTotalBytes针对华为交换机CE6810(Version 8.80)之用用新标准的oid才能对Vlan进行查询，只在此型号的交换机测试通过，其他版本和型号的交换机请自行测试。
 
-##源码安装
+## 源码安装
 	mkdir $GOPATH/src/aiyun.com.cn/aiswitch
   cd $GOPATH/src/aiyun.com.cn/aiswitch
   git clone <aiswitch URI>
@@ -29,7 +29,7 @@ hwL2VlanStatInTotalPkts、hwL2VlanStatOutTotalPkts、hwL2VlanStatInTotalBytes、
 	cd $GOPATH/src/github.com/gaochao1/sw
 	git pull
 
-##部署说明
+## 部署说明
 swcollector需要部署到有交换机SNMP访问权限的服务器上。
 
 使用Go原生的ICMP协议进行Ping探测，swcollector需要root权限运行。
@@ -38,7 +38,7 @@ swcollector需要部署到有交换机SNMP访问权限的服务器上。
 因此最好在监控探针服务器上也装个snmpwalk命令
 
 
-#配置说明
+## 配置说明
 配置文件请参照cfg.example.json，修改该文件名为cfg.json，将该文件里的IP换成实际使用的IP。
 
 switch配置项说明：

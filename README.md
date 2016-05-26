@@ -50,8 +50,8 @@ switch配置项说明：
            "192.168.56.102/32",
            "172.16.114.233"
  		],
-		"pingTimeout":300, 			   #Ping超时时间，单位毫秒
-		"pingRetry":4,				   #Ping探测重试次数
+		"pingTimeout":300,							#Ping超时时间，单位毫秒
+		"pingRetry":4,								#Ping探测重试次数
 		"community":"public",				#SNMP认证字符串
 		"snmpTimeout":2000,				#SNMP超时时间，单位毫秒
 		"snmpRetry":5,					#SNMP重试次数

@@ -1,0 +1,41 @@
+{
+    "debug": true,
+	"switch":{
+	   "enabled": true,
+		"ipRange":[
+            "192.168.56.101/32",
+            "192.168.56.102/32",
+            "172.16.114.233"
+ 		],
+ 		"pingTimeout":300,
+		"pingRetry":4,
+		"community":"public",
+		"snmpTimeout":1000,
+		"snmpRetry":5,
+		"ignoreIface": ["Nu","NU","Vlan","Vl"],
+		"ignorePkt": true,
+		"ignoreBroadcastPkt": true,
+		"ignoreMulticastPkt": true,
+		"ignoreVlanStatTotal": false,
+		"ignoreOperStatus": true,
+		"displayByBit": true,
+		"fastPingMode": false,
+		"limitConcur": 1000
+ 	},
+    "heartbeat": {
+        "enabled": false,
+        "addr": "",
+        "interval": 60,
+        "timeout": 1000
+    },
+    "transfer": {
+        "enabled": true,
+        "addr": "127.0.0.1:8433",
+        "interval": 60,
+        "timeout": 1000
+    },
+    "http": {
+        "enabled": true,
+        "listen": ":1989"
+    }
+}

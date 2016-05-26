@@ -22,7 +22,7 @@
 * IfHCInMulticastPkts
 * IfHCOutMulticastPkts
 * IfOperStatus(接口状态，1 up, 2 down, 3 testing, 4 unknown, 5 dormant, 6 notPresent, 7 lowerLayerDown)
-	
+
 
 CPU和内存的OID私有，根据设备厂家和OS版本可能不同。目前测试过的设备：
 
@@ -46,13 +46,14 @@ CPU和内存的OID私有，根据设备厂家和OS版本可能不同。目前测
 从[这里](https://github.com/gaochao1/swcollector/releases) 下载编译好的最新二进制版本即可。注意：这些二进制只能跑在64位Linux上
 
 ##源码安装
+
 	依赖$GOPATH/src/github.com/gaochao1/sw
 	cd $GOPATH/src/github.com/gaochao1/swcollector
 	go get ./...
 	./control build
 	./control pack
 	最后一步会pack出一个tar.gz的安装包，拿着这个包去部署服务即可。
-	
+
 	升级时，确保先更新sw
 	cd $GOPATH/src/github.com/gaochao1/sw
 	git pull
@@ -78,7 +79,7 @@ switch配置项说明：
 		"ipRange":[						#交换机IP地址段，对该网段有效IP，先发Ping包探测，对存活IP发SNMP请求
            "192.168.1.0/24",      
            "192.168.56.102/32",
-           "172.16.114.233" 
+           "172.16.114.233"
  		],
  		"pingTimeout":300, 			   #Ping超时时间，单位毫秒
 		"pingRetry":4,				   #Ping探测重试次数
@@ -91,8 +92,6 @@ switch配置项说明：
 		"ignoreMulticastPkt": true,   #不采集IfHCInMulticastPkts和IfHCOutMulticastPkts
 		"ignoreOperStatus": true,     #不采集IfOperStatus
 		"displayByBit": true,		  #true时，上报的流量单位为bit，为false则单位为byte。
-		"fastPingMode": false,	      #是否开启 fastPing 模式，开启 Ping 的效率更高，并能解决高并发时，会有小概率 ping 通宕机的交换机地址的情况。但 fastPing 可能被防火墙过滤。	
+		"fastPingMode": false,	      #是否开启 fastPing 模式，开启 Ping 的效率更高，并能解决高并发时，会有小概率 ping 通宕机的交换机地址的情况。但 fastPing 可能被防火墙过滤。
  		"limitConcur": 1000           #限制SNMP请求并发数
     }
-
-

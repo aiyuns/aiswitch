@@ -13,8 +13,8 @@ hwL2VlanStatInTotalPkts、hwL2VlanStatOutTotalPkts、hwL2VlanStatInTotalBytes、
 
 ## 源码安装
 	mkdir $GOPATH/src/aiyun.com.cn/aiswitch
-  cd $GOPATH/src/aiyun.com.cn/aiswitch
-  git clone <aiswitch URI>
+	cd $GOPATH/src/aiyun.com.cn/aiswitch
+	git clone <aiswitch URI>
 	// 依赖$GOPATH/src/aiyun.com.cn/aiswitch/sw
 	cd $GOPATH/src/aiyun.com.cn/aiswitch/swcollector
 	go get ./...

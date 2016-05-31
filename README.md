@@ -30,12 +30,15 @@ hwL2VlanStatInTotalPkts、hwL2VlanStatOutTotalPkts、hwL2VlanStatInTotalBytes、
 	git pull
 
 ## 部署说明
+首先要部署open-falcon，详情见[open-falcon教程(含安装部署)](http://book.open-falcon.org/zh/index.html)
+
 swcollector需要部署到有交换机SNMP访问权限的服务器上。
 
 使用Go原生的ICMP协议进行Ping探测，swcollector需要root权限运行。
 
-部分交换机使用Go原生SNMP协议会超时。暂时解决方法是SNMP接口流量查询前先判断设备型号，对部分此类设备，调用snmpwalk命令进行数据收集。(一些华为设备和思科的IOS XR)
-因此最好在监控探针服务器上也装个snmpwalk命令
+部分交换机使用Go原生SNMP协议会超时。暂时解决方法是SNMP接口流量查询前先判断设备型号，对部分此类设备，调用snmpwalk命令进行数据收集(一些华为设备和思科的IOS XR)。因此最好在监控探针服务器上也装个snmpwalk命令。
+
+>NOTE: aiswitch对交换机数据的采集采用udp协议，所以最好把aiswitch和交换机部署到同一网络环境，减少传输中丢包的概率。
 
 
 ## 配置说明
@@ -67,5 +70,4 @@ switch配置项说明：
     }
 
 ## 资料补充
-1. [open-falcon教程(含安装部署)](http://book.open-falcon.org/zh/index.html)
-2. [open-falcon邮件发送模块](https://github.com/iambocai/mailer)
+1. [open-falcon邮件发送模块](https://github.com/iambocai/mailer)

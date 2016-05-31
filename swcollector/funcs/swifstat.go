@@ -2,6 +2,7 @@ package funcs
 
 import (
 	"log"
+	"strings"
 
 	"aiyun.com.cn/aiswitch/swcollector/g"
 	"github.com/open-falcon/common/model"
@@ -132,15 +133,15 @@ func swIfMetrics() (L []*model.MetricValue) {
 				} else {
 					L = append(L, CounterValueIp(ifStat.TS, ip, "switch.if.In", ifStat.IfHCInOctets, ifNameTag, ifIndexTag))
 					L = append(L, CounterValueIp(ifStat.TS, ip, "switch.if.Out", ifStat.IfHCOutOctets, ifNameTag, ifIndexTag))
-
 				}
+
 				//如果IgnorePkt为false，采集Pkt
 				if ignorePkt == false {
 					L = append(L, CounterValueIp(ifStat.TS, ip, "switch.if.InPkts", ifStat.IfHCInUcastPkts, ifNameTag, ifIndexTag))
 					L = append(L, CounterValueIp(ifStat.TS, ip, "switch.if.OutPkts", ifStat.IfHCOutUcastPkts, ifNameTag, ifIndexTag))
 				}
 
-				if !ignoreVlanStatTotal {
+				if !ignoreVlanStatTotal && strings.Contains(ifStat.IfName, "Vlan") {
 					if displayByBit {
 						L = append(L, CounterValueIp(ifStat.TS, ip, "switch.hw.VlanIn", 8*ifStat.HWL2VlanStatInTotalBytes, ifNameTag, ifIndexTag))
 						L = append(L, CounterValueIp(ifStat.TS, ip, "switch.hw.VlanOut", 8*ifStat.HWL2VlanStatOutTotalBytes, ifNameTag, ifIndexTag))
@@ -165,7 +166,7 @@ func swIfMetrics() (L []*model.MetricValue) {
 		for i, v := range AliveIp {
 			log.Println("AliveIp:", i, v)
 		}
-		//log.Println(L)
+		// log.Println(L)
 	}
 
 	return
@@ -227,6 +228,4 @@ func coreSwIfMetrics(ip string, ch chan ChIfStat, limitCh chan bool) {
 		ch <- chIfStat
 		return
 	}
-
-	return
 }

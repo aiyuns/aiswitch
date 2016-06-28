@@ -1,6 +1,7 @@
 # aiswitch
 基于开源项目[swcollector](https://github.com/gaochao1/swcollector)
-支持设备：HW-CE6800 EI Hi设备
+支持设备：HW-CE6800 EI设备
+## 华为粑粑CE系列vlan流量监控
 
 ## 简介
 采集的metric列表：
